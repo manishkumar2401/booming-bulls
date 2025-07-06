@@ -33,50 +33,51 @@ const Step = ({ index, title, subtitle, scrollY, scrollValue }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const height = useTransform(scrollY, [scrollValue, (scrollValue + 0.25)], ["0%", "100%"]);
+    
     return (
         (index + 1) % 2 === 0 ? <div ref={ref} className="flex w-full text-white h-75 pb-18">
             {/* Left Section */}
-            <div className="w-1/2 order-3"></div>
+            <div className="w-1/5 md:w-1/2 order-first md:order-last"></div>
             {/* Center Section */}
             <div className="w-[1px] relative flex justify-center items-start order-2">
-                <div className="absolute top-15 h-full w-1 bg-gray-200 rounded overflow-hidden shadow-md">
+                <div className="absolute top-15 h-full w-1 bg-gray-500/10 rounded overflow-hidden shadow-md">
                     <motion.div
                         className="w-full bg-blue-500 rounded"
                         style={{ height }}
                     />
                 </div>
                 <div className="absolute text-center">
-                    <div className="text-4xl font-bold">{index + 1}</div>
+                    <div className="text-5xl font-bold">0{index + 1}</div>
                 </div>
             </div>
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="w-1/2 flex flex-col items-end pr-8 order-1">
+                className="w-4/5 md:w-1/2 flex flex-col items-start md:items-end pl-15 md:pr-12 order-last md:order-first">
                 <span className="text-gray-400">{title}</span>
                 <h2 className="text-2xl font-semibold">{subtitle}</h2>
             </motion.div>
         </div> : <div ref={ref} className="flex w-full text-white h-75 pb-18">
             {/* Left Section */}
-            <div className="w-1/2"></div>
+            <div className="w-1/5 md:w-1/2"></div>
             {/* Center Section */}
             <div className="w-[1px] relative flex justify-center items-start">
-                <div className="absolute top-15 h-full w-1 bg-gray-200 rounded overflow-hidden shadow-md">
+                <div className="absolute top-15 h-full w-1 bg-gray-500/10 rounded overflow-hidden shadow-md">
                     <motion.div
                         className="w-full bg-blue-500 rounded"
                         style={{ height }}
                     />
                 </div>
                 <div className="absolute text-center">
-                    <div className="text-4xl font-bold">{index + 1}</div>
+                    <div className="text-5xl font-bold">0{index + 1}</div>
                 </div>
             </div>
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="w-1/2 flex flex-col items-start md:items-start pl-8">
+                className="w-4/5 md:w-1/2 flex flex-col items-start md:items-start pl-15">
                 <span className="text-gray-400">{title}</span>
                 <h2 className="text-2xl font-semibold">{subtitle}</h2>
             </motion.div>
