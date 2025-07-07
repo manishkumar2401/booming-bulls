@@ -133,3 +133,14 @@
     syntax: '<angle>';
 }
 
+
+scroll-container {
+  overflow-x: scroll;
+  width: 100%; /* Or a specific width */
+  height: 200px; /* Or a specific height */
+}
+
+.scroll-text {
+  white-space: nowrap; /* Prevent text from wrapping */
+  /* Add other styles to position and size the text */
+}
