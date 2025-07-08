@@ -6,12 +6,12 @@ export default function Footer() {
     const isInView = useInView(ref, { once: false });
 
     return (
-        <footer ref={ref} className="flex items-center justify-center py-16 px-4 font-inter">
+        <footer ref={ref} className="flex items-center justify-center py-30 px-4 font-inter">
         <div>
             <motion.p
                 ref={ref}
                 style={{
-                    opacity: isInView ? 1 : 0,
+                    x: isInView ? -100 : 0,
                     transition: "opacity 0.5s ease-in-out",
                 }}
                 className='text-7xl font-bold text-center text-gray-800 dark:text-white'
