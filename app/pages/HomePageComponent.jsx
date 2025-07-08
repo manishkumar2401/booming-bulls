@@ -1,7 +1,8 @@
 "use client"
 import Head from 'next/head';
-import TimelineSteps from "./TimelineSteps"
-import Footer from "./Footer"
+import TimelineSteps from "../components/TimelineSteps"
+import Footer from "../components/Footer"
+import Header from "../components/Header"
 import { motion, useAnimation, useInView, useTime, useTransform } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 
@@ -32,25 +33,7 @@ export default function HomePageComponent() {
         <title>Landing Page</title>
       </Head>
       <main className="h-100vh bg-black">
-        <header className="flex items-center justify-center py-16 px-4 font-inter">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* "Our Process" button/tag */}
-            <div className="inline-block px-4 py-2 mb-2 text-xs text-[#caa1ca] rounded-full backdrop-blur-sm bg-transparent heading-button">
-              Our Process
-            </div>
-
-            {/* Main Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-6xl tracking-tighter font-semibold text-white leading-tight mb-3">
-              Become a <span className="text-[#a35ca2]">Abcd Pro</span> in sec...
-            </h1>
-
-            {/* Tagline with emoji */}
-            <p className="text-md text-white flex items-center justify-center">
-              <span role="img" aria-label="rocket" className="mr-2 font-sm">🚀</span>
-              Sign up. Fund. Trade.
-            </p>
-          </div>
-        </header>
+        <Header/>
 
         <TimelineSteps />
 
@@ -155,9 +138,9 @@ export default function HomePageComponent() {
         </div>
 
         {/* Payouts Section */}
-        <div className="flex flex-col items-center justify-center font-inter">
+        <div className="relative flex flex-col items-center justify-center font-inter">
 
-          <div className="text-center max-w-4xl px-4 mx-auto pt-16 w-full">
+          <div className="absolute top-0 text-center max-w-4xl px-4 mx-auto pt-16 w-full z-10">
             <div className="inline-block py-2 px-3 mb-2 text-xs text-[#caa1ca] rounded-full backdrop-blur-sm bg-transparent heading-button">
               Payouts
             </div>
@@ -171,18 +154,15 @@ export default function HomePageComponent() {
             <p className="text-md text-white flex items-center justify-center">
               Your Trust is Our Fuel—Power Up with Abcd
             </p>
+            <div className="counter text-white text-9xl opacity-40"> $999,186+ </div>
           </div>
 
-          <div className='relative flex flex-col w-full mx-auto items-center overflow-hidden'>
-            <div className="counter text-white text-9xl"> $999,186+ </div>
-          </div>
-
-          <div className='relative flex flex-col w-full mx-auto items-center overflow-hidden' style={{ height: "455px" }}>
+          <div className='relative flex flex-col w-full mx-auto items-center overflow-hidden' style={{ height: "575px", paddingTop: "140px" }}>
             <video autoPlay muted loop playsInline preload="true" className="rounded-lg shadow-lg">
               <source src="/assets/bg.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className='absolute w-full h-full flex justify-center py-10 bg-[black]/50' style={{alignItems: "end"}}>
+            <div className='absolute w-full h-full flex justify-center pb-[180px] bg-[black]/50' style={{alignItems: "end"}}>
               <a href="/" className='px-3 py-2 bg-black text-white rounded-lg' rel="noopener noreferrer">Are you next?</a>
             </div>
           </div>
